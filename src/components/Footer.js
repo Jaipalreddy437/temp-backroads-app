@@ -1,0 +1,26 @@
+import React from "react";
+import { socialLinks } from "../data";
+import PageLinks from "./PageLinks";
+import SocialLink from "./SocialLink";
+
+const Footer = () => {
+  return (
+    <footer className="section footer">
+      <PageLinks className="footer-links" navLink="footer-link" />
+      {/* <SocialLink className="footer-icons" anchorClass="footer-icon" /> */}
+      <ul className="footer-icons">
+        {socialLinks.map((links) => {
+          return (
+            <SocialLink className="footer-icon" id={links.id} {...links} />
+          );
+        })}
+      </ul>
+      <p className="copyright">
+        copyright &copy; Backroads travel tours company
+        <span id="date">{new Date().getFullYear()}</span> all rights reserved
+      </p>
+    </footer>
+  );
+};
+
+export default Footer;
